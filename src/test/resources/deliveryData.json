@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "customerId": 10,
+  "storeId": 1514,
+  "orderId": 15,
+  "imageId": 25,
+  "paymentStatus": "Paid",
+  "deliveryStatus": "Processed",
+  "pickupDate": "2022-05-04T21:00:30.000+00:00"
+}
