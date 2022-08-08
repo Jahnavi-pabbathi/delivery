@@ -1,7 +1,7 @@
-package com.tgt.upcurve.demo.service;
+package com.tgt.upcurve.DeliveryAPI.service;
 
-import com.tgt.upcurve.demo.entity.DeliveryEntity;
-import com.tgt.upcurve.demo.repository.DeliveryRepository;
+import com.tgt.upcurve.DeliveryAPI.entity.DeliveryEntity;
+import com.tgt.upcurve.DeliveryAPI.repository.DeliveryRepository;
 import org.springframework.stereotype.Service;
 
 

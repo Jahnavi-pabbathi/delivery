@@ -1,7 +1,7 @@
-package com.tgt.upcurve.demo.controller;
+package com.tgt.upcurve.DeliveryAPI.controller;
 
-import com.tgt.upcurve.demo.entity.DeliveryEntity;
-import com.tgt.upcurve.demo.service.DeliveryService;
+import com.tgt.upcurve.DeliveryAPI.entity.DeliveryEntity;
+import com.tgt.upcurve.DeliveryAPI.service.DeliveryService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

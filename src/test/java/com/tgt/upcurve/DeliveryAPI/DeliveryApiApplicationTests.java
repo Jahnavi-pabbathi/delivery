@@ -1,10 +1,10 @@
-package com.tgt.upcurve.demo;
+package com.tgt.upcurve.DeliveryAPI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DeliveryAPIApplicationTests {
+class DeliveryApiApplicationTests {
 
 	@Test
 	void contextLoads() {

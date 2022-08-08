@@ -1,8 +1,8 @@
-package com.tgt.upcurve.demo.controller;
+package com.tgt.upcurve.DeliveryAPI.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.tgt.upcurve.demo.entity.DeliveryEntity;
-import com.tgt.upcurve.demo.utility.JsonUtility;
+import com.tgt.upcurve.DeliveryAPI.entity.DeliveryEntity;
+import com.tgt.upcurve.DeliveryAPI.utility.JsonUtility;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

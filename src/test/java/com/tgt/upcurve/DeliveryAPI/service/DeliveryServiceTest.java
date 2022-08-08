@@ -1,8 +1,8 @@
-package com.tgt.upcurve.demo.service;
+package com.tgt.upcurve.DeliveryAPI.service;
 
-import com.tgt.upcurve.demo.DeliveryAPIApplication;
-import com.tgt.upcurve.demo.entity.DeliveryEntity;
-import com.tgt.upcurve.demo.utility.JsonUtility;
+import com.tgt.upcurve.DeliveryAPI.DeliveryApiApplication;
+import com.tgt.upcurve.DeliveryAPI.entity.DeliveryEntity;
+import com.tgt.upcurve.DeliveryAPI.utility.JsonUtility;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = DeliveryAPIApplication.class)
+@SpringBootTest(classes = DeliveryApiApplication.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 
 public class DeliveryServiceTest {

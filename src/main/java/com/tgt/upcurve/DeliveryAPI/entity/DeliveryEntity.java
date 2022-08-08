@@ -1,6 +1,5 @@
-package com.tgt.upcurve.demo.entity;
+package com.tgt.upcurve.DeliveryAPI.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
