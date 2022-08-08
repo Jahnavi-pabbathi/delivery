@@ -1,6 +1,6 @@
 package com.tgt.upcurve.demo.repository;
 
-import com.tgt.upcurve.demo.DemoApplication;
+import com.tgt.upcurve.demo.DeliveryAPIApplication;
 import com.tgt.upcurve.demo.entity.DeliveryEntity;
 import com.tgt.upcurve.demo.utility.JsonUtility;
 import org.junit.jupiter.api.Assertions;
@@ -11,11 +11,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = DemoApplication.class)
+@SpringBootTest(classes = DeliveryAPIApplication.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class DeliveryRepositoryTest {
     @Autowired
@@ -53,11 +52,11 @@ public class DeliveryRepositoryTest {
         assert fetchedDeliveriesByCustomerId.size() > 0;
     }
 
- /* @Test
+    /*@Test
     public void testFetchDeliveryDetailsByDate() throws Exception{
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryRepository.save(delivery);
-        List<DeliveryEntity> fetchedDeliveriesByDate = deliveryRepository.findAllByPickupDate(DATE);
+        List<DeliveryEntity> fetchedDeliveriesByDate = deliveryRepository.findAllByPickupDate();
         assert fetchedDeliveriesByDate.size() > 0;
     }*/
 

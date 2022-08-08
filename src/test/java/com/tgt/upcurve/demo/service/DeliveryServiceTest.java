@@ -1,6 +1,6 @@
 package com.tgt.upcurve.demo.service;
 
-import com.tgt.upcurve.demo.DemoApplication;
+import com.tgt.upcurve.demo.DeliveryAPIApplication;
 import com.tgt.upcurve.demo.entity.DeliveryEntity;
 import com.tgt.upcurve.demo.utility.JsonUtility;
 import org.junit.jupiter.api.Test;
@@ -14,14 +14,14 @@ import java.time.LocalDate;
 import java.util.List;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = DemoApplication.class)
+@SpringBootTest(classes = DeliveryAPIApplication.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 
 public class DeliveryServiceTest {
     @Autowired
     DeliveryService deliveryService;
     private static final String ORDER_JSON_FILE_PATH = "/deliveryData.json";
-    private static final String DATE_PARAM="07-08-2022";
+    private static final LocalDate DATE_PARAM= LocalDate.parse("2022-08-07");
 
     @Test
     public void testFindByCustomerIdAndOrderId() throws Exception {
@@ -39,13 +39,13 @@ public class DeliveryServiceTest {
         assert existingDelivery.size() > 0;
     }
 
-    /*@Test
+    @Test
     public void testFindDeliveryByDate() throws Exception {
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryService.saveDelivery(delivery);
-        List< DeliveryEntity> existingDelivery= deliveryService.fetchDeliveryByDate(LocalDate.parse(DATE_PARAM));
+        List< DeliveryEntity> existingDelivery= deliveryService.getDeliveryDetailsByDate(DATE_PARAM);
         assert existingDelivery.size() > 0;
-    }*/
+    }
 
     @Test
     public void testFindDeliveryByCustomerId() throws Exception{
@@ -57,8 +57,8 @@ public class DeliveryServiceTest {
 
     @Test
     public void testDeleteDelivery() throws Exception{
-        DeliveryEntity order = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
-        DeliveryEntity savedDelivery = deliveryService.saveDelivery(order);
+        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
+        DeliveryEntity savedDelivery = deliveryService.saveDelivery(delivery);
         DeliveryEntity fetchedDelivery = deliveryService.fetchDeliveryByCustomerIdAndOrderId(10,15);
         assert fetchedDelivery != null;
         deliveryService.deleteDelivery(10,15);

@@ -33,7 +33,6 @@ public class DeliveryControllerTest {
     private static final String URI_FETCH_IMAGE_ID="/delivery_api/v1/fetch_delivery_by_image_id/{image_id}";
     private static final String URI_DELETE_CUSTOMER_ID_ORDER_ID = "/delivery_api/v1/{customer_id}/{order_id}";
     private static final String URI_SAVE = "/delivery_api/v1/";
-    private static final String URI_FETCH_DATE="/delivery_api/v1/fetch_delivery_details_by_date/{pickup_date}";
     private static final String ORDER_JSON_FILE_PATH = "/deliveryData.json";
 
     @Test
@@ -103,11 +102,6 @@ public class DeliveryControllerTest {
         Assertions.assertEquals(savedDelivery.getCustomerId(), fetchedDelivery.get(0).getCustomerId());
         Assertions.assertEquals(savedDelivery.getStoreId(), fetchedDelivery.get(0).getStoreId());
     }
-
-   /* @Test
-    public void testFetchDeliveryByDate() throws Exception {
-
-    }*/
 
     @Test
     public void testDeleteDelivery() throws Exception {

@@ -50,8 +50,5 @@ public class DeliveryService{
         }
     }
 
-    public List<DeliveryEntity> fetchDeliveryByDate(LocalDate date) {
-        return deliveryRepository.findAllByPickupDate(date);
 
-    }
 }

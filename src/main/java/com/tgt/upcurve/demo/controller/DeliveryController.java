@@ -38,7 +38,8 @@ public class DeliveryController {
     }
 
     @GetMapping("/fetch_delivery_details_by_date/{pickup_date}")
-public List<DeliveryEntity> getDeliveryDetailsByDate(@DateTimeFormat(pattern = "dd.mm.yyyy") @PathVariable(value = "pickup_date") LocalDate pickupDate) {
+public List<DeliveryEntity> getDeliveryDetailsByDate(@PathVariable("pickup_date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+                                                                 LocalDate pickupDate) {
         return  deliveryService.getDeliveryDetailsByDate(pickupDate);
     }
 
