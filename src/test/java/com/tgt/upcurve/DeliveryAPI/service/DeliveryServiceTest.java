@@ -21,7 +21,7 @@ public class DeliveryServiceTest {
     @Autowired
     DeliveryService deliveryService;
     private static final String ORDER_JSON_FILE_PATH = "/deliveryData.json";
-    private static final LocalDate DATE_PARAM= LocalDate.parse("2022-08-07");
+    private static final LocalDate DATE_PARAM = LocalDate.parse("2022-08-07");
 
     @Test
     public void testFindByCustomerIdAndOrderId() throws Exception {
@@ -35,34 +35,26 @@ public class DeliveryServiceTest {
     public void testFindByImageId() throws Exception {
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryService.saveDelivery(delivery);
-        List< DeliveryEntity> existingDelivery= deliveryService.fetchDeliveryByImageId(25);
+        List<DeliveryEntity> existingDelivery = deliveryService.fetchDeliveryByImageId(25);
         assert existingDelivery.size() > 0;
     }
 
     @Test
-    public void testFindDeliveryByDate() throws Exception {
+    public void testFindDeliveryByCustomerId() throws Exception {
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryService.saveDelivery(delivery);
-        List< DeliveryEntity> existingDelivery= deliveryService.getDeliveryDetailsByDate(DATE_PARAM);
+        List<DeliveryEntity> existingDelivery = deliveryService.fetchDeliveryByCustomerId(10);
         assert existingDelivery.size() > 0;
     }
 
     @Test
-    public void testFindDeliveryByCustomerId() throws Exception{
+    public void testDeleteDelivery() throws Exception {
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryService.saveDelivery(delivery);
-        List< DeliveryEntity> existingDelivery = deliveryService.fetchDeliveryByCustomerId(10);
-        assert existingDelivery.size() > 0;
-    }
-
-    @Test
-    public void testDeleteDelivery() throws Exception{
-        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
-        DeliveryEntity savedDelivery = deliveryService.saveDelivery(delivery);
-        DeliveryEntity fetchedDelivery = deliveryService.fetchDeliveryByCustomerIdAndOrderId(10,15);
+        DeliveryEntity fetchedDelivery = deliveryService.fetchDeliveryByCustomerIdAndOrderId(10, 15);
         assert fetchedDelivery != null;
-        deliveryService.deleteDelivery(10,15);
-        DeliveryEntity fetchedDelivery1 = deliveryService.fetchDeliveryByCustomerIdAndOrderId(10,15);
+        deliveryService.deleteDelivery(10, 15);
+        DeliveryEntity fetchedDelivery1 = deliveryService.fetchDeliveryByCustomerIdAndOrderId(10, 15);
         assert fetchedDelivery1 == null;
     }
 }

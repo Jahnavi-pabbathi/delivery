@@ -52,15 +52,6 @@ public class DeliveryRepositoryTest {
         assert fetchedDeliveriesByCustomerId.size() > 0;
     }
 
-    /*@Test
-    public void testFetchDeliveryDetailsByDate() throws Exception{
-        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
-        DeliveryEntity savedDelivery = deliveryRepository.save(delivery);
-        List<DeliveryEntity> fetchedDeliveriesByDate = deliveryRepository.findAllByPickupDate();
-        assert fetchedDeliveriesByDate.size() > 0;
-    }*/
-
-
     @Test
     public  void testDeleteDelivery() throws Exception{
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
