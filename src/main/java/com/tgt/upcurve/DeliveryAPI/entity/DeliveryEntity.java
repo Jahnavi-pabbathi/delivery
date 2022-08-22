@@ -4,6 +4,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.Date;
 
 
@@ -37,6 +40,6 @@ public class DeliveryEntity {
     private String deliveryStatus;
 
     @Column(name = "pickup_date")
-    private Date pickupDate;
+    private LocalDateTime pickupDate;
 
 }

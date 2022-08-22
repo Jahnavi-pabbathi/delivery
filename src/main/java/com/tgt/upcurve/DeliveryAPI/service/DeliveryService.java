@@ -1,11 +1,16 @@
 package com.tgt.upcurve.DeliveryAPI.service;
 
 import com.tgt.upcurve.DeliveryAPI.entity.DeliveryEntity;
+import com.tgt.upcurve.DeliveryAPI.mapper.DeliveryMapper;
 import com.tgt.upcurve.DeliveryAPI.repository.DeliveryRepository;
+import com.tgt.upcurve.DeliveryAPI.response.DeliveryResponse;
 import org.springframework.stereotype.Service;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 
@@ -18,29 +23,29 @@ public class DeliveryService{
         this.deliveryRepository = deliveryRepository;
     }
 
-    public DeliveryEntity fetchDeliveryByCustomerIdAndOrderId(Integer customerId, Integer orderId) {
-        return deliveryRepository.findDeliveryByCustomerIdAndOrderId(customerId, orderId);
+    public DeliveryResponse fetchDeliveryByCustomerIdAndOrderId(Integer customerId, Integer orderId) {
+        return DeliveryMapper.INSTANCE.toResponse(deliveryRepository.findDeliveryByCustomerIdAndOrderId(customerId, orderId));
     }
 
-    public List<DeliveryEntity> fetchDeliveryByCustomerId(Integer customerId) {
-        return deliveryRepository.findAllByCustomerId(customerId);
+    public List<DeliveryResponse> fetchDeliveryByCustomerId(Integer customerId) {
+        return DeliveryMapper.INSTANCE.toResponseList(deliveryRepository.findAllByCustomerId(customerId));
     }
 
-    public DeliveryEntity saveDelivery(DeliveryEntity delivery) {
+    public DeliveryResponse saveDelivery(DeliveryEntity delivery) {
         DeliveryEntity saveDelivery = null;
         DeliveryEntity existingOrder = deliveryRepository.findDeliveryByCustomerIdAndOrderId(delivery.getCustomerId(), delivery.getOrderId());
         if(null == existingOrder){
             saveDelivery = deliveryRepository.save(delivery);
         }
-        return saveDelivery;
+        return DeliveryMapper.INSTANCE.toResponse(saveDelivery);
     }
 
-    public List<DeliveryEntity> getDeliveryDetailsByDate(LocalDate pickupDate) {
-        return deliveryRepository.findAllByPickupDate(pickupDate);
+    public List<DeliveryResponse> getDeliveryDetailsByDate(LocalDate pickupDate) {
+        return DeliveryMapper.INSTANCE.toResponseList(deliveryRepository.findAllByPickupDate(pickupDate));
     }
 
-    public List<DeliveryEntity> fetchDeliveryByImageId(Integer imageId) {
-        return deliveryRepository.findAllByImageId(imageId);
+    public List<DeliveryResponse> fetchDeliveryByImageId(Integer imageId) {
+        return  DeliveryMapper.INSTANCE.toResponseList(deliveryRepository.findAllByImageId(imageId));
     }
 
     public void deleteDelivery(Integer customerId, Integer orderId) {

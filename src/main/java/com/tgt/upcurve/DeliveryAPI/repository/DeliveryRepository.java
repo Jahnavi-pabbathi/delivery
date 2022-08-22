@@ -11,12 +11,11 @@ import java.util.List;
 @Repository
 public interface DeliveryRepository extends JpaRepository<DeliveryEntity,Integer> {
 
-
     DeliveryEntity findDeliveryByCustomerIdAndOrderId(Integer customerId, Integer orderId);
 
     List<DeliveryEntity> findAllByCustomerId(Integer customerId);
 
-    List<DeliveryEntity> findAllByPickupDate(LocalDate pickupDate);
+   List<DeliveryEntity> findAllByPickupDate(LocalDate pickupDate);
 
     List<DeliveryEntity> findAllByImageId(Integer imageId);
 
