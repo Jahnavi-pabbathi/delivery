@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS public.order_delivery
     store_id integer NOT NULL,
     order_id integer NOT NULL,
     image_id integer NOT NULL,
+    image_code bytea NOT NULL,
     payment_status character varying(10) COLLATE pg_catalog."default" NOT NULL,
     delivery_status character varying(10) COLLATE pg_catalog."default" NOT NULL,
     pickup_date timestamp with time zone,
