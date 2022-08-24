@@ -33,6 +33,9 @@ public class DeliveryEntity {
     @Column(name="image_id")
     private Integer imageId;
 
+    @Column(name = "image_code")
+    private byte[] imageCode;
+
     @Column(name="payment_status")
     private String paymentStatus;
 

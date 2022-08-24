@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.time.LocalDateTime;
 
 
@@ -25,6 +26,9 @@ public class DeliveryResponse {
 
     @JsonProperty("image_id")
     private Integer imageId;
+
+    @JsonProperty("image_code")
+    private byte[] imageCode;
 
     @JsonProperty("payment_status")
     private String paymentStatus;
