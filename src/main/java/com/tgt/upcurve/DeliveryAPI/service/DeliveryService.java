@@ -35,9 +35,11 @@ public class DeliveryService{
         DeliveryEntity saveDelivery = null;
         DeliveryEntity existingOrder = deliveryRepository.findDeliveryByCustomerIdAndOrderId(delivery.getCustomerId(), delivery.getOrderId());
         if(null == existingOrder){
-            saveDelivery = deliveryRepository.save(delivery);
+            deliveryRepository.saveAndFlush(delivery);
+        } else {
+            deliveryRepository.save(delivery);
         }
-        return DeliveryMapper.INSTANCE.toResponse(saveDelivery);
+        return fetchDeliveryByCustomerIdAndOrderId(delivery.getCustomerId(), delivery.getOrderId());
     }
 
     public List<DeliveryResponse> getDeliveryDetailsByDate(LocalDate pickupDate) {
