@@ -47,6 +47,7 @@ public class DeliveryEntity {
     @Column(name = "image_code")
     @JsonProperty("image_code")
     @JsonAlias("imageCode")
+    @Lob
     private byte[] imageCode;
 
     @Column(name="payment_status")

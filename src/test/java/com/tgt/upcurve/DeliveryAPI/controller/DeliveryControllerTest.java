@@ -48,7 +48,7 @@ public class DeliveryControllerTest {
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
         String savedResponse = responseSave.getResponse().getContentAsString();
-        MvcResult responseFetch = mockMvc.perform(get(URI_FETCH_CUSTOMER_ID_ORDER_ID, 10, 15)
+        MvcResult responseFetch = mockMvc.perform(get(URI_FETCH_CUSTOMER_ID_ORDER_ID, 100, 10)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
@@ -70,7 +70,7 @@ public class DeliveryControllerTest {
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
         String savedResponse = responseSave.getResponse().getContentAsString();
-        MvcResult responseFetch = mockMvc.perform(get(URI_FETCH_CUSTOMER_ID, 10)
+        MvcResult responseFetch = mockMvc.perform(get(URI_FETCH_CUSTOMER_ID, 100)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
@@ -93,7 +93,7 @@ public class DeliveryControllerTest {
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
         String savedResponse = responseSave.getResponse().getContentAsString();
-        MvcResult responseFetch = mockMvc.perform(get(URI_FETCH_IMAGE_ID, 25)
+        MvcResult responseFetch = mockMvc.perform(get(URI_FETCH_IMAGE_ID, 24)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
@@ -117,7 +117,7 @@ public class DeliveryControllerTest {
                 .andReturn();
         String savedResponse = responseSave.getResponse().getContentAsString();
 
-        MvcResult responseFetch = mockMvc.perform(get(URI_FETCH_CUSTOMER_ID_ORDER_ID, 10, 15)
+        MvcResult responseFetch = mockMvc.perform(get(URI_FETCH_CUSTOMER_ID_ORDER_ID, 100, 10)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
@@ -125,12 +125,12 @@ public class DeliveryControllerTest {
         DeliveryEntity fetchedDelivery = JsonUtility.readValue(fetchedResponse, DeliveryEntity.class);
         assert fetchedDelivery != null;
 
-        MvcResult responseDelete = mockMvc.perform(delete(URI_DELETE_CUSTOMER_ID_ORDER_ID, 10, 15)
+        MvcResult responseDelete = mockMvc.perform(delete(URI_DELETE_CUSTOMER_ID_ORDER_ID, 100, 10)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
 
-        MvcResult responseFetch1 = mockMvc.perform(get(URI_FETCH_CUSTOMER_ID_ORDER_ID, 10, 15)
+        MvcResult responseFetch1 = mockMvc.perform(get(URI_FETCH_CUSTOMER_ID_ORDER_ID, 100, 10)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();

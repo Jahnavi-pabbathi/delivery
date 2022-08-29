@@ -28,7 +28,7 @@ public class DeliveryServiceTest {
     public void testFindByCustomerIdAndOrderId() throws Exception {
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryResponse savedDelivery = deliveryService.saveDelivery(delivery);
-        DeliveryResponse existingDelivery = deliveryService.fetchDeliveryByCustomerIdAndOrderId(10, 15);
+        DeliveryResponse existingDelivery = deliveryService.fetchDeliveryByCustomerIdAndOrderId(100, 10);
         assert existingDelivery != null;
     }
 
@@ -36,7 +36,7 @@ public class DeliveryServiceTest {
     public void testFindByImageId() throws Exception {
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryResponse savedDelivery = deliveryService.saveDelivery(delivery);
-        List<DeliveryResponse> existingDelivery = deliveryService.fetchDeliveryByImageId(25);
+        List<DeliveryResponse> existingDelivery = deliveryService.fetchDeliveryByImageId(24);
         assert existingDelivery.size() > 0;
     }
 
@@ -44,7 +44,7 @@ public class DeliveryServiceTest {
     public void testFindDeliveryByCustomerId() throws Exception {
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryResponse savedDelivery = deliveryService.saveDelivery(delivery);
-        List<DeliveryResponse> existingDelivery = deliveryService.fetchDeliveryByCustomerId(10);
+        List<DeliveryResponse> existingDelivery = deliveryService.fetchDeliveryByCustomerId(100);
         assert existingDelivery.size() > 0;
     }
 
@@ -52,10 +52,10 @@ public class DeliveryServiceTest {
     public void testDeleteDelivery() throws Exception {
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryResponse savedDelivery = deliveryService.saveDelivery(delivery);
-        DeliveryResponse fetchedDelivery = deliveryService.fetchDeliveryByCustomerIdAndOrderId(10, 15);
+        DeliveryResponse fetchedDelivery = deliveryService.fetchDeliveryByCustomerIdAndOrderId(100, 10);
         assert fetchedDelivery != null;
-        deliveryService.deleteDelivery(10, 15);
-        DeliveryResponse fetchedDelivery1 = deliveryService.fetchDeliveryByCustomerIdAndOrderId(10, 15);
+        deliveryService.deleteDelivery(100, 10);
+        DeliveryResponse fetchedDelivery1 = deliveryService.fetchDeliveryByCustomerIdAndOrderId(100, 10);
         assert fetchedDelivery1 == null;
     }
 }

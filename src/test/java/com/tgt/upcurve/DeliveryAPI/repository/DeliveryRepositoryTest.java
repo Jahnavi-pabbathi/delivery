@@ -25,7 +25,7 @@ public class DeliveryRepositoryTest {
     public void testFindByImageId() throws Exception {
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryRepository.save(delivery);
-        DeliveryEntity fetchedDelivery = deliveryRepository.findByImageId(25);
+        DeliveryEntity fetchedDelivery = deliveryRepository.findByImageId(24);
         assert fetchedDelivery != null;
     }
 
@@ -33,7 +33,7 @@ public class DeliveryRepositoryTest {
     public void testFindByCustomerIdAndOrderId() throws Exception {
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryRepository.save(delivery);
-        DeliveryEntity fetchedDelivery =deliveryRepository.findDeliveryByCustomerIdAndOrderId(10, 15);
+        DeliveryEntity fetchedDelivery =deliveryRepository.findDeliveryByCustomerIdAndOrderId(100, 10);
         assert fetchedDelivery != null;
     }
 
@@ -56,10 +56,10 @@ public class DeliveryRepositoryTest {
     public  void testDeleteDelivery() throws Exception{
         DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryRepository.save(delivery);
-        DeliveryEntity fetchedDelivery = deliveryRepository.findDeliveryByCustomerIdAndOrderId(10,15);
+        DeliveryEntity fetchedDelivery = deliveryRepository.findDeliveryByCustomerIdAndOrderId(100,10);
         assert fetchedDelivery != null;
         deliveryRepository.delete(savedDelivery);
-        DeliveryEntity fetchedDelivery1 = deliveryRepository.findDeliveryByCustomerIdAndOrderId(10,15);
+        DeliveryEntity fetchedDelivery1 = deliveryRepository.findDeliveryByCustomerIdAndOrderId(100,10);
         assert fetchedDelivery1 == null;
     }
 
