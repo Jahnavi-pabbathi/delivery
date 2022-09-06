@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -44,10 +45,11 @@ public class DeliveryEntity {
     @JsonAlias("imageId")
     private Integer imageId;
 
-    @Column(name = "image_code")
+    @Lob
+    @Type(type = "org.hibernate.type.BinaryType")
+    @Column(name="image_code",length=10000)
     @JsonProperty("image_code")
     @JsonAlias("imageCode")
-    @Lob
     private byte[] imageCode;
 
     @Column(name="payment_status")
