@@ -37,11 +37,11 @@ public class DeliveryControllerTest {
     private static final String URI_FETCH_IMAGE_ID = "/delivery_api/v1/fetch_delivery_by_image_id/{image_id}";
     private static final String URI_DELETE_CUSTOMER_ID_ORDER_ID = "/delivery_api/v1/customer_id/{customer_id}/order_id/{order_id}";
     private static final String URI_SAVE = "/delivery_api/v1/";
-    private static final String ORDER_JSON_FILE_PATH = "/deliveryData.json";
+    private static final String DELIVERY_JSON_FILE_PATH = "/deliveryData.json";
 
     @Test
     public void testFetchByCustomerIdAndOrderId() throws Exception {
-        String orderString = JsonUtility.getResourceAsString(ORDER_JSON_FILE_PATH);
+        String orderString = JsonUtility.getResourceAsString(DELIVERY_JSON_FILE_PATH);
         MvcResult responseSave = mockMvc.perform(post(URI_SAVE)
                         .content(orderString)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -63,7 +63,7 @@ public class DeliveryControllerTest {
 
     @Test
     public void testFetchDeliveryByCustomerId() throws Exception {
-        String deliveryString = JsonUtility.getResourceAsString(ORDER_JSON_FILE_PATH);
+        String deliveryString = JsonUtility.getResourceAsString(DELIVERY_JSON_FILE_PATH);
         MvcResult responseSave = mockMvc.perform(post(URI_SAVE)
                         .content(deliveryString)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -86,7 +86,7 @@ public class DeliveryControllerTest {
 
     @Test
     public void testFetchDeliveryByImageId() throws Exception {
-        String deliveryString = JsonUtility.getResourceAsString(ORDER_JSON_FILE_PATH);
+        String deliveryString = JsonUtility.getResourceAsString(DELIVERY_JSON_FILE_PATH);
         MvcResult responseSave = mockMvc.perform(post(URI_SAVE)
                         .content(deliveryString)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -109,7 +109,7 @@ public class DeliveryControllerTest {
 
     @Test
     public void testDeleteDelivery() throws Exception {
-        String orderString = JsonUtility.getResourceAsString(ORDER_JSON_FILE_PATH);
+        String orderString = JsonUtility.getResourceAsString(DELIVERY_JSON_FILE_PATH);
         MvcResult responseSave = mockMvc.perform(post(URI_SAVE)
                         .content(orderString)
                         .contentType(MediaType.APPLICATION_JSON))
