@@ -21,12 +21,12 @@ import java.util.List;
 public class DeliveryServiceTest {
     @Autowired
     DeliveryService deliveryService;
-    private static final String ORDER_JSON_FILE_PATH = "/deliveryData.json";
+    private static final String DELIVERY_JSON_FILE_PATH = "/deliveryData.json";
     private static final LocalDate DATE_PARAM = LocalDate.parse("2022-08-07");
 
     @Test
     public void testFindByCustomerIdAndOrderId() throws Exception {
-        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
+        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(DELIVERY_JSON_FILE_PATH);
         DeliveryResponse savedDelivery = deliveryService.saveDelivery(delivery);
         DeliveryResponse existingDelivery = deliveryService.fetchDeliveryByCustomerIdAndOrderId(100, 10);
         assert existingDelivery != null;
@@ -34,7 +34,7 @@ public class DeliveryServiceTest {
 
     @Test
     public void testFindByImageId() throws Exception {
-        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
+        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(DELIVERY_JSON_FILE_PATH);
         DeliveryResponse savedDelivery = deliveryService.saveDelivery(delivery);
         List<DeliveryResponse> existingDelivery = deliveryService.fetchDeliveryByImageId(24);
         assert existingDelivery.size() > 0;
@@ -42,7 +42,7 @@ public class DeliveryServiceTest {
 
     @Test
     public void testFindDeliveryByCustomerId() throws Exception {
-        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
+        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(DELIVERY_JSON_FILE_PATH);
         DeliveryResponse savedDelivery = deliveryService.saveDelivery(delivery);
         List<DeliveryResponse> existingDelivery = deliveryService.fetchDeliveryByCustomerId(100);
         assert existingDelivery.size() > 0;
@@ -50,7 +50,7 @@ public class DeliveryServiceTest {
 
     @Test
     public void testDeleteDelivery() throws Exception {
-        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
+        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(DELIVERY_JSON_FILE_PATH);
         DeliveryResponse savedDelivery = deliveryService.saveDelivery(delivery);
         DeliveryResponse fetchedDelivery = deliveryService.fetchDeliveryByCustomerIdAndOrderId(100, 10);
         assert fetchedDelivery != null;

@@ -20,10 +20,10 @@ public class DeliveryRepositoryTest {
     @Autowired
     DeliveryRepository deliveryRepository;
 
-    private static final String ORDER_JSON_FILE_PATH = "/deliveryData.json";
+    private static final String DELIVERY_JSON_FILE_PATH = "/deliveryData.json";
     @Test
     public void testFindByImageId() throws Exception {
-        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
+        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(DELIVERY_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryRepository.save(delivery);
         DeliveryEntity fetchedDelivery = deliveryRepository.findByImageId(24);
         assert fetchedDelivery != null;
@@ -31,7 +31,7 @@ public class DeliveryRepositoryTest {
 
     @Test
     public void testFindByCustomerIdAndOrderId() throws Exception {
-        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
+        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(DELIVERY_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryRepository.save(delivery);
         DeliveryEntity fetchedDelivery =deliveryRepository.findDeliveryByCustomerIdAndOrderId(100, 10);
         assert fetchedDelivery != null;
@@ -39,14 +39,14 @@ public class DeliveryRepositoryTest {
 
     @Test
     public void testSaveDelivery() throws Exception {
-       DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
+       DeliveryEntity delivery = JsonUtility.getDeliveryRequest(DELIVERY_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryRepository.save(delivery);
         Assertions.assertNotNull(savedDelivery.getId());
     }
 
     @Test
     public void testFetchDeliveryByCustomerId() throws Exception{
-        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
+        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(DELIVERY_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryRepository.save(delivery);
         List<DeliveryEntity> fetchedDeliveriesByCustomerId = deliveryRepository.findAllByCustomerId(delivery.getCustomerId());
         assert fetchedDeliveriesByCustomerId.size() > 0;
@@ -54,7 +54,7 @@ public class DeliveryRepositoryTest {
 
     @Test
     public  void testDeleteDelivery() throws Exception{
-        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(ORDER_JSON_FILE_PATH);
+        DeliveryEntity delivery = JsonUtility.getDeliveryRequest(DELIVERY_JSON_FILE_PATH);
         DeliveryEntity savedDelivery = deliveryRepository.save(delivery);
         DeliveryEntity fetchedDelivery = deliveryRepository.findDeliveryByCustomerIdAndOrderId(100,10);
         assert fetchedDelivery != null;
